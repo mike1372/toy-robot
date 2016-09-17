@@ -10,9 +10,9 @@ class Command
 
   	output = []
 
-  	array.each do |a|
+  	array.each_with_index do |a, i|
   		if a == 'PLACE'
-  			output << [0, 0, 'N']
+  			output << format_place(array[i + 1])
   		elsif a == 'MOVE'
   			output << 'M'
   		elsif a == 'LEFT'
@@ -24,7 +24,27 @@ class Command
   		end
   	end
 
-  	p output
+  	output
+  end
+
+  private
+
+  # Currently assumes valid place details
+  def format_place(item)
+  	array = item.split(',')
+
+  	output = [array[0].to_i, array[1].to_i]
+
+  	if array[2] == 'NORTH'
+  		output << 'N'
+  	elsif array[2] == 'EAST'
+  		output << 'E'
+  	elsif array[2] == 'SOUTH'
+  		output << 'S'
+  	elsif array[2] == 'WEST'
+  		output << 'W'
+  	end
+
   	output
   end
 end
