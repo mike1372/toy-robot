@@ -1,6 +1,8 @@
 # The robot
 
 class Robot
+  attr_reader :on_board, :position, :orientation
+
   def initialize()
     @position = []
     @orientation = nil
@@ -57,6 +59,7 @@ class Robot
       output = 'Robot is not yet on the board'
     end
 
+    puts output
     output
   end
 
