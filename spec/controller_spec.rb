@@ -50,13 +50,13 @@ describe Controller, "Controlling the robot" do
     assert @controller_object.robot.report == '0,0,NORTH'
   end
 
-  it "prevents the robot from being placed off the rear side of the board" do
+  it "prevents the robot from being placed off the front side of the board" do
   	@controller_object.run_commands([[0, 0, 'NORTH']])
   	@controller_object.run_commands([[2, -1, 'SOUTH']])
     assert @controller_object.robot.report == '0,0,NORTH'
   end
 
-  it "prevents the robot from being placed off the rear side of the board" do
+  it "prevents the robot from being placed off the left side of the board" do
   	@controller_object.run_commands([[0, 0, 'NORTH']])
   	@controller_object.run_commands([[-1, 2, 'WEST']])
     assert @controller_object.robot.report == '0,0,NORTH'

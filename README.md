@@ -31,7 +31,7 @@ TO DO
 -----
 Add a Rakefile
 Don't forget to perform linting
-Add an additional class to handle iteration of commands on the robot - this may also be responsible for robot safety and thr board dimensions
+Add an additional class to handle iteration of commands on the robot - this may also be responsible for robot safety and the board dimensions
 Add graphical output
 Go through tesitng all the robot orientations?
 Should not be relying on the REPORT command of the robot in the other tests - circular dependency
@@ -41,5 +41,5 @@ Deal with the issue of PLACE as the final command as well as incomplete data for
 Possible Extensions
 -------------------
 
-Add something on the board for the robot to retrieve and make it a game - get the object in the least number of moves, object gets placed at random upon board creation, also have obstacles that the robot must avoid - have vitality that is lost upon each move and also lost upon attempting to move onto a square with an object
+Add something on the board for the robot to retrieve and make it a game - get the object in the least number of moves, object gets placed at random upon board creation, also have obstacles that the robot must avoid - have vitality that is lost upon each move and also lost upon attempting to move onto a square with an object. Add a cheat too?
 Add a third dimension - make the robot a spacecraft in space that is surrounded by hostile objects: black holes, supernovas, etc.

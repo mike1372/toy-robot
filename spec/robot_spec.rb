@@ -10,7 +10,7 @@ describe Robot, "Calling commands on the robot" do
     @robot_object = Robot.new
   end
 
-  it "should report something meaningful if it is not yet placed on the board" do
+  it "should report something meaningful if it is not on the board" do
     assert @robot_object.report == 'Robot is not yet on the board'
   end
 
@@ -24,11 +24,33 @@ describe Robot, "Calling commands on the robot" do
     assert @robot_object.report == '0,0,NORTH'
   end
 
-  it "should handle a MOVE command" do
-  	@robot_object.place([0, 0, 'NORTH'])
+  # Moving
+
+  it "should handle a MOVE command when facing NORTH" do
+  	@robot_object.place([2, 2, 'NORTH'])
     @robot_object.move
-    assert @robot_object.report == '0,1,NORTH'
+    assert @robot_object.report == '2,3,NORTH'
   end
+
+  it "should handle a MOVE command when facing EAST" do
+  	@robot_object.place([2, 2, 'EAST'])
+    @robot_object.move
+    assert @robot_object.report == '3,2,EAST'
+  end
+
+  it "should handle a MOVE command when facing SOUTH" do
+  	@robot_object.place([2, 2, 'SOUTH'])
+    @robot_object.move
+    assert @robot_object.report == '2,1,SOUTH'
+  end
+
+  it "should handle a MOVE command when facing WEST" do
+  	@robot_object.place([2, 2, 'WEST'])
+    @robot_object.move
+    assert @robot_object.report == '1,2,WEST'
+  end
+
+  # Turning around
 
   it "should be able to handle a LEFT command" do
   	@robot_object.place([0, 0, 'NORTH'])
