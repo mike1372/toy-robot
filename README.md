@@ -33,3 +33,9 @@ Add graphical output
 Go through tesitng all the robot orientations?
 Should not be relying on the REPORT command of the robot in the other tests - circular dependency
 Handle extensibility?
+
+Possible Extensions
+-------------------
+
+Add something on the board for the robot to retrieve and make it a game - get the object in the least number of moves, object gets placed at random upon board creation, also have obstacles that the robot must avoid - have vitality that is lost upon each move and also lost upon attempting to move onto a square with an object
+Add a third dimension - make the robot a spacecraft in space that is surrounded by hostile objects: black holes, supernovas, etc.
