@@ -15,6 +15,8 @@ Let's start with a few things:
 * The board - will need to know what size it is
 * A command interpreter - will process command line input and convert it into a format to be sent to the robot. It will not be responsible for maintaining the safety of the robot however this requirement could be handled here by ignoring commands that would send the robot to its doom - actually no as the command interpreter does not know anything about the board
 
+* Now will add a command controller to run the robot with the interpreted commands
+
 Assumptions
 -----------
 
@@ -27,12 +29,14 @@ The robot will be responsible for ignoring commands of it is not on the board - 
 
 TO DO
 -----
+Add a Rakefile
 Don't forget to perform linting
 Add an additional class to handle iteration of commands on the robot - this may also be responsible for robot safety and thr board dimensions
 Add graphical output
 Go through tesitng all the robot orientations?
 Should not be relying on the REPORT command of the robot in the other tests - circular dependency
 Handle extensibility?
+Deal with the issue of PLACE as the final command as well as incomplete data for the PLACE command
 
 Possible Extensions
 -------------------
