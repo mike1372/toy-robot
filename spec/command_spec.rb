@@ -43,6 +43,6 @@ describe Command, "Interpreting input commands to pass to the robot" do
   end
 
   it "should be able to handle multiple commands in the same input string with garbage" do
-    assert @command_object.process('PLACE 0,0,NORTH MOVE ROBOT MOVE MOVEE MOVE FUNNY REPORT') == [0]
+    assert @command_object.process('PLACE 0,0,NORTH MOVE ROBOT MOVE MOVEE MOVE FUNNY REPORT') == [[0, 0, 'N'], 'M', 'M', 'M', 'Z']
   end
 end
