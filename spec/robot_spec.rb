@@ -82,9 +82,27 @@ describe Robot, "Calling commands on the robot" do
 
   # Turning to the right
 
-  it "should be able to handle a RIGHT command" do
+  it "should be able to handle a RIGHT command when facing NORTH" do
   	@robot_object.place([0, 0, 'NORTH'])
     @robot_object.right
     assert @robot_object.report == '0,0,EAST'
+  end
+
+  it "should be able to handle a RIGHT command when facing EAST" do
+  	@robot_object.place([0, 0, 'EAST'])
+    @robot_object.right
+    assert @robot_object.report == '0,0,SOUTH'
+  end
+
+  it "should be able to handle a RIGHT command when facing SOUTH" do
+  	@robot_object.place([0, 0, 'SOUTH'])
+    @robot_object.right
+    assert @robot_object.report == '0,0,WEST'
+  end
+
+  it "should be able to handle a RIGHT command when facing WEST" do
+  	@robot_object.place([0, 0, 'WEST'])
+    @robot_object.right
+    assert @robot_object.report == '0,0,NORTH'
   end
 end
