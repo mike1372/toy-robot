@@ -11,7 +11,7 @@ describe Command, "Interpreting input commands to pass to the robot" do
   end
 
   it "should handle a PLACE command" do
-    assert @command_object.process('PLACE 0,0,NORTH') == [[0, 0, 'N']]
+    assert @command_object.process('PLACE 0,0,NORTH') == [[0, 0, 'NORTH']]
   end
 
   it "should handle a MOVE command" do
@@ -31,18 +31,18 @@ describe Command, "Interpreting input commands to pass to the robot" do
   end
 
   it "should be able to handle the example test input - case 1" do
-    assert @command_object.process('PLACE 0,0,NORTH MOVE REPORT') == [[0, 0, 'N'], 'M', 'Z']
+    assert @command_object.process('PLACE 0,0,NORTH MOVE REPORT') == [[0, 0, 'NORTH'], 'M', 'Z']
   end
 
 	it "should be able to handle the example test input - case 2" do
-    assert @command_object.process('PLACE 0,0,NORTH LEFT REPORT') == [[0, 0, 'N'], 'L', 'Z']
+    assert @command_object.process('PLACE 0,0,NORTH LEFT REPORT') == [[0, 0, 'NORTH'], 'L', 'Z']
   end
 
   it "should be able to handle the example test input - case 3" do
-    assert @command_object.process('PLACE 1,2,EAST MOVE MOVE LEFT MOVE REPORT') == [[1, 2, 'E'], 'M', 'M', 'L', 'M', 'Z']
+    assert @command_object.process('PLACE 1,2,EAST MOVE MOVE LEFT MOVE REPORT') == [[1, 2, 'EAST'], 'M', 'M', 'L', 'M', 'Z']
   end
 
   it "should be able to handle multiple commands in the same input string with garbage" do
-    assert @command_object.process('PLACE 0,0,NORTH MOVE ROBOT MOVE MOVEE MOVE FUNNY REPORT') == [[0, 0, 'N'], 'M', 'M', 'M', 'Z']
+    assert @command_object.process('PLACE 0,0,NORTH MOVE ROBOT MOVE MOVEE MOVE FUNNY REPORT') == [[0, 0, 'NORTH'], 'M', 'M', 'M', 'Z']
   end
 end

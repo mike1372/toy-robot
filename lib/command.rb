@@ -36,13 +36,13 @@ class Command
   	output = [array[0].to_i, array[1].to_i]
 
   	if array[2] == 'NORTH'
-  		output << 'N'
+  		output << 'NORTH'
   	elsif array[2] == 'EAST'
-  		output << 'E'
+  		output << 'EAST'
   	elsif array[2] == 'SOUTH'
-  		output << 'S'
+  		output << 'SOUTH'
   	elsif array[2] == 'WEST'
-  		output << 'W'
+  		output << 'WEST'
   	end
 
   	output
