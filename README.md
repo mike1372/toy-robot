@@ -15,3 +15,8 @@ Let's start with a few things:
 * The board - will need to know what size it is
 * A command interpreter - will process command line input and convert it into a format to be sent to the robot. It will not be responsible for maintaining the safety of the robot however this requirement could be handled here by ignoring commands that would send the robot to its doom
 
+Assumptions
+-----------
+
+The robot will only ever get valid commands in the correct format
+The robot will be responsible for ignoring commands of it is not on the board
