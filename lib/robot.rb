@@ -30,28 +30,10 @@ class Robot
 
   def left
     turn('LEFT')
-    # if @orientation == 'NORTH'
-    #   @orientation = 'WEST'
-    # elsif @orientation == 'WEST'
-    #   @orientation = 'SOUTH'
-    # elsif @orientation == 'SOUTH'
-    #   @orientation = 'EAST'
-    # else
-    #   @orientation = 'NORTH'
-    # end
   end
 
   def right
     turn('RIGHT')
-    # if @orientation == 'NORTH'
-    #   @orientation = 'EAST'
-    # elsif @orientation == 'EAST'
-    #   @orientation = 'SOUTH'
-    # elsif @orientation == 'SOUTH'
-    #   @orientation = 'WEST'
-    # else
-    #   @orientation = 'NORTH'
-    # end
   end
 
   def report
@@ -79,19 +61,3 @@ class Robot
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
