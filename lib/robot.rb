@@ -29,27 +29,29 @@ class Robot
   end
 
   def left
-    if @orientation == 'NORTH'
-      @orientation = 'WEST'
-    elsif @orientation == 'WEST'
-      @orientation = 'SOUTH'
-    elsif @orientation == 'SOUTH'
-      @orientation = 'EAST'
-    else
-      @orientation = 'NORTH'
-    end
+    turn('LEFT')
+    # if @orientation == 'NORTH'
+    #   @orientation = 'WEST'
+    # elsif @orientation == 'WEST'
+    #   @orientation = 'SOUTH'
+    # elsif @orientation == 'SOUTH'
+    #   @orientation = 'EAST'
+    # else
+    #   @orientation = 'NORTH'
+    # end
   end
 
   def right
-     if @orientation == 'NORTH'
-      @orientation = 'EAST'
-    elsif @orientation == 'EAST'
-      @orientation = 'SOUTH'
-    elsif @orientation == 'SOUTH'
-      @orientation = 'WEST'
-    else
-      @orientation = 'NORTH'
-    end
+    turn('RIGHT')
+    # if @orientation == 'NORTH'
+    #   @orientation = 'EAST'
+    # elsif @orientation == 'EAST'
+    #   @orientation = 'SOUTH'
+    # elsif @orientation == 'SOUTH'
+    #   @orientation = 'WEST'
+    # else
+    #   @orientation = 'NORTH'
+    # end
   end
 
   def report
@@ -65,5 +67,31 @@ class Robot
 
   private
 
-  
+  def turn(direction)
+    orientations = ['NORTH', 'EAST', 'SOUTH', 'WEST']
+    index = orientations.index(@orientation)
+
+    if direction == 'LEFT'
+      @orientation = orientations[index - 1]
+    elsif direction == 'RIGHT'
+      index == 3 ? index = 0 : index += 1
+      @orientation = orientations[index]
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
