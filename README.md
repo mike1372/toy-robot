@@ -1,43 +1,70 @@
-Toy Robot
-=========
+Toy Robot Simulator
+===================
 
-Project spec can be found here: https://gist.github.com/owenbyrne/5e3cacfba369725f82a7655b5293fa7b
+This project was written to the following specification: https://gist.github.com/owenbyrne/5e3cacfba369725f82a7655b5293fa7b
+
+Please note that the "table" is referred to in this project as the "board" (sorry I don't know why I used this term)
 
 Architecture
 ------------
 
-Let's start with a few things:
-* The toy robot - will need the following:
+The basic architecture is as follows:
+* The main program loop: runs continuously upon invocation
+* The command interpreter:
+	* Received inout from the main program loop
+	* Processes the input and converts it into a format to send to the controller (see below)
+* The controller:
+	* Creates the robot and board 
+	* Respnsible for commanding the robot to perform various actions
+	* Prevents the robot from being placed or falling off the board
+* The robot:
 	* Will need to know whether or not it is on the board
-	* Once on the board it will need to know its location and orientation
+	* Once on the board it will need to know its location in X and Y coordinates and its orientation
 	* It will need to be able to move and turn
-	* It will need to ignore commands that it knows will send it to its doom
-* The board - will need to know what size it is
-* A command interpreter - will process command line input and convert it into a format to be sent to the robot. It will not be responsible for maintaining the safety of the robot however this requirement could be handled here by ignoring commands that would send the robot to its doom - actually no as the command interpreter does not know anything about the board
+	* It will need to be able to report its position and orientation
+* The board: will need to know what size it is
 
-* Now will add a command controller to run the robot with the interpreted commands
+Running the simulation
+----------------------
+
+The simulation is run with the assistance of a Rakefile with the folowing commands:
+
+```
+rake test
+rake run
+```
+
+Commands can be input at the command prompt once the program is running, any output is sent to stdout. Hit CTRL C to end.
+
+This simulator was developed on Ruby 2.3.1, it is not guaranteed to work with other Ruby versions.
 
 Assumptions
 -----------
 
-The robot will only ever get valid commands in the correct format
-The robot will be responsible for ignoring commands of it is not on the board - now make this the responsibility of a new class - what to call it?
+Input may contain garbage and still successfully process valid commands contained therein
+PLACE command parameters must be of the correct format and otherwise ignored
+Input commands are separated by whitespace
+The command interpreter will only process commands and not be aware of anything else
+The controller is responsible for ensuring that the robot will not be placed or fall off the board
+The robot will only receive valid and safe commands in the correct format from the controller
 
-TO DO
+Notes
 -----
-Add a Rakefile
+
+Googling of this simulator was not performed until after it had been completed as I wanted to see what I would come up with first prior to looking at how others solved this problem.
+An interesting article on this simulation can be found here: https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/
+
+To Do
+-----
+
 Don't forget to perform linting
-Add an additional class to handle iteration of commands on the robot - this may also be responsible for robot safety and the board dimensions
-Add graphical output
-Go through tesitng all the robot orientations?
 Should not be relying on the REPORT command of the robot in the other tests - circular dependency
-Handle extensibility?
-Deal with the issue of PLACE as the final command as well as incomplete data for the PLACE command
-Refactor the command file
-More test cases for command input?
+Refactor the command file and any other methods that look somewhat ugly
+Add a compass to handle the orientation of the robot?
 
 Possible Extensions
 -------------------
 
-Add something on the board for the robot to retrieve and make it a game - get the object in the least number of moves, object gets placed at random upon board creation, also have obstacles that the robot must avoid - have vitality that is lost upon each move and also lost upon attempting to move onto a square with an object. Add a cheat too?
+Graphical output and some (useful) messages
+Add something on the board for the robot to retrieve and make it a game - get say, a jewel placed on the board in the least number of moves, jewel gets placed at random upon board creation, also have obstacles that the robot must avoid - have vitality that is decremented upon each move and also decremented upon attempting to move onto a square with an obstacle. Thus the object of the game is to find the jewel before running out of vitality. And add a graph to show where things were at the end of the game.
 Add a third dimension - make the robot a spacecraft in space that is surrounded by hostile objects: black holes, supernovas, etc.
