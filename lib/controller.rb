@@ -32,12 +32,12 @@ class Controller
   private
 
   def check_place_position(command)
-  	if command[0] < 0 || command[0] > @board.length - 1
-  		return false
-  	end
-  	if command[1] < 0 || command[1] > @board.length - 1
-  		return false
-  	end
+  	command.each do |com|
+  		if com.class == Fixnum
+	  		return false if com < 0 || com > @board.length - 1
+	  	end
+	  end
+
   	true
   end
 
