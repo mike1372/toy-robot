@@ -14,6 +14,26 @@ describe Command, "Interpreting input commands to pass to the robot" do
     assert @command_object.process('PLACE 0,0,NORTH') == [[0, 0, 'NORTH']]
   end
 
+  it "should ignore invalid PLACE parameters - missing all values" do
+    assert @command_object.process('PLACE') == []
+  end
+
+  it "should ignore invalid PLACE parameters - missing some values" do
+    assert @command_object.process('PLACE 0') == []
+  end
+
+  it "should ignore invalid PLACE parameters - missing some values" do
+    assert @command_object.process('PLACE 0,NORTH') == []
+  end
+
+  it "should ignore invalid PLACE parameters - out of order" do
+    assert @command_object.process('PLACE 0,NORTH,0') == []
+  end
+
+  it "should ignore invalid PLACE parameters - garbage values" do
+    assert @command_object.process('PLACE FUNNY,ROBOT,TEST') == []
+  end
+
   it "should handle a MOVE command" do
     assert @command_object.process('MOVE') == ['M']
   end
@@ -44,5 +64,9 @@ describe Command, "Interpreting input commands to pass to the robot" do
 
   it "should be able to handle multiple commands in the same input string with garbage" do
     assert @command_object.process('PLACE 0,0,NORTH MOVE ROBOT MOVE MOVEE MOVE FUNNY REPORT') == [[0, 0, 'NORTH'], 'M', 'M', 'M', 'Z']
+  end
+
+  it "should be able to handle multiple commands in the same input string with additional PLACE commands and garbage" do
+    assert @command_object.process('PLACE 0,0,NORTH MOVE ROBOT MOVE PLACE MOVEE MOVE FUNNY PLACE 1,1,SOUTH REPORT') == [[0, 0, 'NORTH'], 'M', 'M', 'M', [1, 1, 'SOUTH'], 'Z']
   end
 end
