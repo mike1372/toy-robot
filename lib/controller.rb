@@ -42,18 +42,11 @@ class Controller
   end
 
   def check_position
-  	if @robot.orientation == 'NORTH' && @robot.position[1] == @board.length - 1
-  		return false
-  	end
-  	if @robot.orientation == 'EAST' && @robot.position[0] == @board.length - 1
-  		return false
-  	end
-  	if @robot.orientation == 'SOUTH' && @robot.position[1] == 0
-  		return false
-  	end
-  	if @robot.orientation == 'WEST' && @robot.position[0] == 0
-  		return false
-  	end
+  	return false if @robot.orientation == 'NORTH' && @robot.position[1] == @board.length - 1
+  	return false if @robot.orientation == 'EAST' && @robot.position[0] == @board.length - 1
+  	return false if @robot.orientation == 'SOUTH' && @robot.position[1] == 0
+  	return false if @robot.orientation == 'WEST' && @robot.position[0] == 0
+
   	true
   end
 end
