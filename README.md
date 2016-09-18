@@ -23,10 +23,6 @@ Assumptions
 The robot will only ever get valid commands in the correct format
 The robot will be responsible for ignoring commands of it is not on the board - now make this the responsibility of a new class - what to call it?
 
-
-
-
-
 TO DO
 -----
 Add a Rakefile
@@ -37,6 +33,8 @@ Go through tesitng all the robot orientations?
 Should not be relying on the REPORT command of the robot in the other tests - circular dependency
 Handle extensibility?
 Deal with the issue of PLACE as the final command as well as incomplete data for the PLACE command
+Refactor the command file
+More test cases for command input?
 
 Possible Extensions
 -------------------
