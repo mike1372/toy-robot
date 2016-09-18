@@ -11,8 +11,8 @@ class Robot
 
   def place(input)
     @on_board = true
-  	@position << input[0]
-    @position << input[1]
+  	@position[0] = input[0]
+    @position[1] = input[1]
     @orientation = input[2]
   end
 
