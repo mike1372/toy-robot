@@ -18,13 +18,7 @@ class Controller
  			elsif command == 'Z'
  				@robot.report
  			elsif @robot.on_board
-	 			if command == 'M' && check_position
-	 				@robot.move
-	 			elsif command == 'L'
-	 				@robot.left
-	 			elsif command == 'R'
-	 				@robot.right
-	 			end
+	 			manipulate_robot(command)
  			end
  		end
   end
@@ -48,5 +42,15 @@ class Controller
   	return false if @robot.orientation == 'WEST' && @robot.position[0] == 0
 
   	true
+  end
+
+  def manipulate_robot(command)
+  	if command == 'M' && check_position
+			@robot.move
+		elsif command == 'L'
+			@robot.left
+		elsif command == 'R'
+			@robot.right
+		end
   end
 end
