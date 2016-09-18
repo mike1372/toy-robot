@@ -17,6 +17,12 @@ describe Robot, "Calling commands on the robot" do
     assert @robot_object.report == '0,0,NORTH'
   end
 
+  it "should handle a multiple PLACE commands" do
+    @robot_object.place([0, 0, 'NORTH'])
+    @robot_object.place([1, 1, 'SOUTH'])
+    assert @robot_object.report == '1,1,SOUTH'
+  end
+
   # Reporting
 
   it "should report something meaningful if it is not on the board" do
