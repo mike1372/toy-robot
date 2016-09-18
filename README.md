@@ -41,30 +41,30 @@ This simulator was developed on Ruby 2.3.1, it is not guaranteed to work with ot
 Assumptions
 -----------
 
-Input may contain garbage and still successfully process valid commands contained therein
-PLACE command parameters must be of the correct format and otherwise ignored
-Input commands are separated by whitespace
-The command interpreter will only process commands and not be aware of anything else
-The controller is responsible for ensuring that the robot will not be placed or fall off the board
-The robot will only receive valid and safe commands in the correct format from the controller
+* Input may contain garbage and still successfully process valid commands contained therein
+* PLACE command parameters must be of the correct format and otherwise ignored
+* Input commands are separated by whitespace
+* The command interpreter will only process commands and not be aware of anything else
+* The controller is responsible for ensuring that the robot will not be placed or fall off the board
+* The robot will only receive valid and safe commands in the correct format from the controller
 
 Notes
 -----
 
-Googling of this simulator was not performed until after it had been completed as I wanted to see what I would come up with first prior to looking at how others solved this problem.
-An interesting article on this simulation can be found here: https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/
+* Googling of this simulator was not performed until after it had been completed as I wanted to see what I would come up with first prior to looking at how others solved this problem.
+* An interesting article on this simulation can be found here: https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/
 
 To Do
 -----
 
-Don't forget to perform linting
-Should not be relying on the REPORT command of the robot in the other tests - circular dependency
-Refactor the command file and any other methods that look somewhat ugly
-Add a compass to handle the orientation of the robot?
+* Don't forget to perform linting
+* Should not be relying on the REPORT command of the robot in the other tests - circular dependency
+* Refactor the command file and any other methods that look somewhat ugly
+* Add a compass to handle the orientation of the robot?
 
 Possible Extensions
 -------------------
 
-Graphical output and some (useful) messages
-Add something on the board for the robot to retrieve and make it a game - get say, a jewel placed on the board in the least number of moves, jewel gets placed at random upon board creation, also have obstacles that the robot must avoid - have vitality that is decremented upon each move and also decremented upon attempting to move onto a square with an obstacle. Thus the object of the game is to find the jewel before running out of vitality. And add a graph to show where things were at the end of the game.
-Add a third dimension - make the robot a spacecraft in space that is surrounded by hostile objects: black holes, supernovas, etc.
+* Graphical output and some (useful) messages
+* Add something on the board for the robot to retrieve and make it a game - get say, a jewel placed on the board in the least number of moves, jewel gets placed at random upon board creation, also have obstacles that the robot must avoid - have vitality that is decremented upon each move and also decremented upon attempting to move onto a square with an obstacle. Thus the object of the game is to find the jewel before running out of vitality. And add a graph to show where things were at the end of the game.
+* Add a third dimension - make the robot a spacecraft in space that is surrounded by hostile objects: black holes, supernovas, etc.
