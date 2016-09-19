@@ -1,9 +1,10 @@
+#
 # The robot
-
+#
 class Robot
   attr_reader :on_board, :position, :orientation
 
-  def initialize()
+  def initialize
     @position = []
     @orientation = nil
     @on_board = false
@@ -11,7 +12,7 @@ class Robot
 
   def place(input)
     @on_board = true
-  	@position[0] = input[0]
+    @position[0] = input[0]
     @position[1] = input[1]
     @orientation = input[2]
   end
@@ -23,7 +24,7 @@ class Robot
       @position[0] += 1
     elsif @orientation == 'SOUTH'
       @position[1] -= 1
-    elsif
+    else
       @position[0] -= 1
     end
   end
@@ -37,11 +38,11 @@ class Robot
   end
 
   def report
-    if @on_board
-      output = "#{@position[0].to_s},#{@position[1].to_s},#{@orientation}"
-    else
-      output = 'Robot is not yet on the board'
-    end
+    output = if @on_board
+               "#{@position[0]},#{@position[1]},#{@orientation}"
+             else
+               'Robot is not yet on the board'
+             end
 
     puts output
     output
@@ -50,7 +51,7 @@ class Robot
   private
 
   def turn(direction)
-    orientations = ['NORTH', 'EAST', 'SOUTH', 'WEST']
+    orientations = %w(NORTH EAST SOUTH WEST)
     index = orientations.index(@orientation)
 
     if direction == 'LEFT'
