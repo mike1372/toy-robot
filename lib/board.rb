@@ -1,10 +1,11 @@
+#
 # The board object
-
+#
 class Board
-	attr_reader :width, :length 
+  attr_reader :width, :length
 
   def initialize(width, length)
-  	@width = width
-  	@length = length
+    @width = width
+    @length = length
   end
 end
