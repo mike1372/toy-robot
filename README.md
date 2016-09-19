@@ -52,7 +52,14 @@ Notes
 -----
 
 * Googling of this simulator was not performed until after it had been completed as I wanted to see what I would come up with first prior to looking at how others solved this problem.
-* An interesting article on this simulation can be found here: https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/
+* An interesting and rather enlightening article on this simulation can be found here: https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/
+* Where possible this solution was implemented in a test driven (TDD) way - design, add tests and finally write the functionality.
+
+Questions
+---------
+
+* Is my solution sufficiently scalable? For example what if I decided to implement a third dimension - what would need to change? Other examples include extra orientations such as NORTH EAST, NORTH WEST, SOUTH EAST and SOUTH WEST or changing the board size
+* Is my solution elegant and beautiful in a Ruby like way?
 
 To Do
 -----
