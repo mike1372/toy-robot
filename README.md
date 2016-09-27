@@ -60,11 +60,12 @@ Questions
 
 * Is my solution sufficiently scalable? For example what if I decided to implement a third dimension - what would need to change? Other examples include extra orientations such as NORTH EAST, NORTH WEST, SOUTH EAST and SOUTH WEST or changing the board size
 * Is my solution elegant and beautiful in a Ruby like way?
+* Is my solution SOLID?
 
 To Do
 -----
 
-* Don't forget to perform linting
+* Needs integration testing
 * Should not be relying on the REPORT command of the robot in the other tests - circular dependency
 * Refactor the command file and any other methods that look somewhat ugly
 * Add a compass to handle the orientation of the robot?
