@@ -11,10 +11,10 @@ Architecture
 The basic architecture is as follows:
 * The main program loop: runs continuously upon invocation
 * The command interpreter:
-	* Received inout from the main program loop
+	* Receives input from the main program loop
 	* Processes the input and converts it into a format to send to the controller (see below)
 * The controller:
-	* Creates the robot and board 
+	* Creates the robot and board upon simulation creation
 	* Respnsible for commanding the robot to perform various actions
 	* Prevents the robot from being placed or falling off the board
 * The robot:
@@ -42,7 +42,7 @@ Assumptions
 -----------
 
 * Input may contain garbage and still successfully process valid commands contained therein
-* PLACE command parameters must be of the correct format and otherwise ignored
+* PLACE command parameters must be of the correct format and are otherwise ignored
 * Input commands are separated by whitespace
 * The command interpreter will only process commands and not be aware of anything else
 * The controller is responsible for ensuring that the robot will not be placed or fall off the board
