@@ -66,6 +66,7 @@ To Do
 -----
 
 * Needs integration testing
+* Need to test private class methods
 * Should not be relying on the REPORT command of the robot in the other tests - circular dependency
 * Refactor the command file and any other methods that look somewhat ugly
 * Add a compass to handle the orientation of the robot?
