@@ -7,7 +7,8 @@ Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_opti
 
 describe Robot, 'Calling commands on the robot' do
   before do
-    @robot_object = Robot.new
+    compass = Compass.new
+    @robot_object = Robot.new(compass)
   end
 
   # Placing

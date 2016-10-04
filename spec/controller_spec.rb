@@ -8,7 +8,8 @@ Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_opti
 
 describe Controller, 'Controlling the robot' do
   before do
-    @controller_object = Controller.new
+    compass = Compass.new
+    @controller_object = Controller.new(compass)
   end
 
   it 'should handle a PLACE command' do

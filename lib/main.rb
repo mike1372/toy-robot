@@ -1,8 +1,10 @@
 require './lib/command.rb'
 require './lib/controller.rb'
+require './lib/compass.rb'
 
-command = Command.new
-controller = Controller.new
+compass = Compass.new
+command = Command.new(compass)
+controller = Controller.new(compass)
 
 loop do
   input = gets.chomp

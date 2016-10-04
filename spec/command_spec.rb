@@ -1,13 +1,15 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require './lib/command.rb'
+require './lib/compass.rb'
 
 reporter_options = { color: true }
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 
 describe Command, 'Interpreting input commands to pass to the robot' do
   before do
-    @command_object = Command.new
+    compass = Compass.new
+    @command_object = Command.new(compass)
   end
 
   it 'should handle a PLACE command' do

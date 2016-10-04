@@ -6,9 +6,10 @@ require './lib/board.rb'
 class Controller
   attr_reader :robot
 
-  def initialize
-    @robot = Robot.new
+  def initialize(compass)
+    @robot = Robot.new(compass)
     @board = Board.new(5, 5)
+    @compass = compass
   end
 
   def run_commands(input)

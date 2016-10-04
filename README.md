@@ -23,6 +23,9 @@ The basic architecture is as follows:
 	* It will need to be able to move and turn
 	* It will need to be able to report its position and orientation
 * The board: will need to know what size it is
+* A compass:
+  * Holds the orientation information of the robot
+  * Handles the safety of the robot
 
 Running the simulation
 ----------------------

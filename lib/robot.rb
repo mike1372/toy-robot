@@ -4,10 +4,11 @@
 class Robot
   attr_reader :on_board, :position, :orientation
 
-  def initialize
+  def initialize(compass)
     @position = []
     @orientation = nil
     @on_board = false
+    @compass = compass
   end
 
   def place(input)
@@ -51,14 +52,14 @@ class Robot
   private
 
   def turn(direction)
-    orientations = %w(NORTH EAST SOUTH WEST)
-    index = orientations.index(@orientation)
+    #orientations = %w(NORTH EAST SOUTH WEST)
+    index = @compass.orientations.index(@orientation)
 
     if direction == 'LEFT'
-      @orientation = orientations[index - 1]
+      @orientation = @compass.orientations[index - 1]
     elsif direction == 'RIGHT'
       index == 3 ? index = 0 : index += 1
-      @orientation = orientations[index]
+      @orientation = @compass.orientations[index]
     end
   end
 end
