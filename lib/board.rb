@@ -18,16 +18,10 @@ class Board
   end
 
   def is_valid_placement(x, y)
-    return true if x < width && x >= 0 && y < length && y >= 0
-    false
+    x < width && x >= 0 && y < length && y >= 0
   end
 
   def is_placed(x, y)
-    if @object[0] == x && @object[1] == y
-      return true
-    else
-      return false
-    end
+    @object[0] == x && @object[1] == y
   end
-
 end

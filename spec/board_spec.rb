@@ -43,9 +43,9 @@ describe Board, 'Setting up the board' do
     assert @board_object.is_placed(-1, 1) == false
   end
 
-  it 'should be able to prevent placing an object in an invalid position after successfully placing' do
+  it 'should be able to prevent replacing an object in an invalid position' do
     @board_object.place(0, 0)
-    @board_object.place(-1, 1)
+    @board_object.place(-1, 5)
     assert @board_object.is_placed(0, 0) == true
   end
 
