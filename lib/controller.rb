@@ -26,13 +26,9 @@ class Controller
   private
 
   def check_place_position(command)
-    command.each do |com|
-      if com.class == Fixnum
-        return false if com < 0 || com > @board.length - 1
-      end
-    end
+    return true if @board.is_valid_placement(command[0], command[1])
 
-    true
+    false
   end
 
   def check_position
